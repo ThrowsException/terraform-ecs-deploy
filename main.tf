@@ -210,8 +210,8 @@ resource "aws_iam_role_policy" "codepipeline_policy" {
             "s3:PutObject"
           ],
           "Resource" : [
-            aws_s3_bucket.codepipeline_bucket.arn,
-            aws_s3_bucket.codepipeline_bucket.arn
+            "${aws_s3_bucket.codepipeline_bucket.arn}",
+            "${aws_s3_bucket.codepipeline_bucket.arn}/*"
           ]
         },
         {
@@ -374,7 +374,7 @@ resource "aws_ecs_task_definition" "app" {
   container_definitions = jsonencode([
     {
       name      = "app"
-      image     = "063754174791.dkr.ecr.us-east-1.amazonaws.com/${aws_ecr_repository.ecr.name}:master"
+      image     = "063754174791.dkr.ecr.us-east-1.amazonaws.com/${aws_ecr_repository.ecr.name}:latest"
       cpu       = 256
       memory    = 512
       essential = true
