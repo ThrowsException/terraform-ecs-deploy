@@ -12,6 +12,10 @@ provider "aws" {
   region  = "us-east-1"
 }
 
+data "aws_s3_bucket" "codepipeline_bucket" {
+  bucket = "cjo-codepipeline"
+}
+
 data "aws_codestarconnections_connection" "github" {
   arn = "arn:aws:codestar-connections:us-east-1:063754174791:connection/f82bad92-5580-4ef2-8ae7-21688ba9c04f"
 }
@@ -101,7 +105,7 @@ resource "aws_codepipeline" "codepipeline" {
   role_arn = aws_iam_role.codepipeline_role.arn
 
   artifact_store {
-    location = aws_s3_bucket.codepipeline_bucket.bucket
+    location = data.aws_s3_bucket.codepipeline_bucket.bucket
     type     = "S3"
   }
 
@@ -166,11 +170,6 @@ resource "aws_codepipeline" "codepipeline" {
   }
 }
 
-resource "aws_s3_bucket" "codepipeline_bucket" {
-  bucket = "cjo-codepipeline"
-  acl    = "private"
-}
-
 resource "aws_iam_role" "codepipeline_role" {
   name = "test-role"
 
@@ -210,8 +209,8 @@ resource "aws_iam_role_policy" "codepipeline_policy" {
             "s3:PutObject"
           ],
           "Resource" : [
-            "${aws_s3_bucket.codepipeline_bucket.arn}",
-            "${aws_s3_bucket.codepipeline_bucket.arn}/*"
+            "${data.aws_s3_bucket.codepipeline_bucket.arn}",
+            "${data.aws_s3_bucket.codepipeline_bucket.arn}/*"
           ]
         },
         {
@@ -445,5 +444,9 @@ resource "aws_ecs_service" "app" {
     target_group_arn = aws_lb_target_group.app.arn
     container_name   = "app"
     container_port   = 3000
+  }
+
+  lifecycle {
+    ignore_changes = [task_definition]
   }
 }
