@@ -288,85 +288,85 @@ resource "aws_iam_role" "task" {
   }
 }
 
-resource "aws_vpc_endpoint" "ecr_api" {
-  vpc_id            = "vpc-fc8d1f87"
-  service_name      = "com.amazonaws.us-east-1.ecr.api"
-  vpc_endpoint_type = "Interface"
+# resource "aws_vpc_endpoint" "ecr_api" {
+#   vpc_id            = "vpc-fc8d1f87"
+#   service_name      = "com.amazonaws.us-east-1.ecr.api"
+#   vpc_endpoint_type = "Interface"
 
-  security_group_ids = [
-    "sg-94b080e2",
-  ]
-  subnet_ids          = ["subnet-824b55e6", "subnet-88595ca7"]
-  private_dns_enabled = true
-}
+#   security_group_ids = [
+#     "sg-94b080e2",
+#   ]
+#   subnet_ids          = ["subnet-824b55e6", "subnet-88595ca7"]
+#   private_dns_enabled = true
+# }
 
-resource "aws_vpc_endpoint" "ecr_ssm" {
-  vpc_id            = "vpc-fc8d1f87"
-  service_name      = "com.amazonaws.us-east-1.ssm"
-  vpc_endpoint_type = "Interface"
+# resource "aws_vpc_endpoint" "ecr_ssm" {
+#   vpc_id            = "vpc-fc8d1f87"
+#   service_name      = "com.amazonaws.us-east-1.ssm"
+#   vpc_endpoint_type = "Interface"
 
-  security_group_ids = [
-    "sg-94b080e2",
-  ]
-  subnet_ids          = ["subnet-824b55e6", "subnet-88595ca7"]
-  private_dns_enabled = true
-}
+#   security_group_ids = [
+#     "sg-94b080e2",
+#   ]
+#   subnet_ids          = ["subnet-824b55e6", "subnet-88595ca7"]
+#   private_dns_enabled = true
+# }
 
-resource "aws_vpc_endpoint" "ec2" {
-  vpc_id            = "vpc-fc8d1f87"
-  service_name      = "com.amazonaws.us-east-1.ec2"
-  vpc_endpoint_type = "Interface"
+# resource "aws_vpc_endpoint" "ec2" {
+#   vpc_id            = "vpc-fc8d1f87"
+#   service_name      = "com.amazonaws.us-east-1.ec2"
+#   vpc_endpoint_type = "Interface"
 
-  security_group_ids = [
-    "sg-94b080e2",
-  ]
-  subnet_ids          = ["subnet-824b55e6", "subnet-88595ca7"]
-  private_dns_enabled = true
-}
+#   security_group_ids = [
+#     "sg-94b080e2",
+#   ]
+#   subnet_ids          = ["subnet-824b55e6", "subnet-88595ca7"]
+#   private_dns_enabled = true
+# }
 
-resource "aws_vpc_endpoint" "ec2messages" {
-  vpc_id            = "vpc-fc8d1f87"
-  service_name      = "com.amazonaws.us-east-1.ec2messages"
-  vpc_endpoint_type = "Interface"
+# resource "aws_vpc_endpoint" "ec2messages" {
+#   vpc_id            = "vpc-fc8d1f87"
+#   service_name      = "com.amazonaws.us-east-1.ec2messages"
+#   vpc_endpoint_type = "Interface"
 
-  security_group_ids = [
-    "sg-94b080e2",
-  ]
-  subnet_ids          = ["subnet-824b55e6", "subnet-88595ca7"]
-  private_dns_enabled = true
-}
+#   security_group_ids = [
+#     "sg-94b080e2",
+#   ]
+#   subnet_ids          = ["subnet-824b55e6", "subnet-88595ca7"]
+#   private_dns_enabled = true
+# }
 
-resource "aws_vpc_endpoint" "ecr_kms" {
-  vpc_id            = "vpc-fc8d1f87"
-  service_name      = "com.amazonaws.us-east-1.kms"
-  vpc_endpoint_type = "Interface"
+# resource "aws_vpc_endpoint" "ecr_kms" {
+#   vpc_id            = "vpc-fc8d1f87"
+#   service_name      = "com.amazonaws.us-east-1.kms"
+#   vpc_endpoint_type = "Interface"
 
-  security_group_ids = [
-    "sg-94b080e2",
-  ]
-  subnet_ids          = ["subnet-824b55e6", "subnet-88595ca7"]
-  private_dns_enabled = true
-}
+#   security_group_ids = [
+#     "sg-94b080e2",
+#   ]
+#   subnet_ids          = ["subnet-824b55e6", "subnet-88595ca7"]
+#   private_dns_enabled = true
+# }
 
-resource "aws_vpc_endpoint" "ecr_dkr" {
-  vpc_id            = "vpc-fc8d1f87"
-  service_name      = "com.amazonaws.us-east-1.ecr.dkr"
-  vpc_endpoint_type = "Interface"
+# resource "aws_vpc_endpoint" "ecr_dkr" {
+#   vpc_id            = "vpc-fc8d1f87"
+#   service_name      = "com.amazonaws.us-east-1.ecr.dkr"
+#   vpc_endpoint_type = "Interface"
 
-  security_group_ids = [
-    "sg-94b080e2",
-  ]
-  subnet_ids          = ["subnet-824b55e6", "subnet-88595ca7"]
-  private_dns_enabled = true
-}
+#   security_group_ids = [
+#     "sg-94b080e2",
+#   ]
+#   subnet_ids          = ["subnet-824b55e6", "subnet-88595ca7"]
+#   private_dns_enabled = true
+# }
 
-resource "aws_vpc_endpoint" "ecr_s3" {
-  vpc_id            = "vpc-fc8d1f87"
-  service_name      = "com.amazonaws.us-east-1.s3"
-  vpc_endpoint_type = "Gateway"
+# resource "aws_vpc_endpoint" "ecr_s3" {
+#   vpc_id            = "vpc-fc8d1f87"
+#   service_name      = "com.amazonaws.us-east-1.s3"
+#   vpc_endpoint_type = "Gateway"
 
-  route_table_ids = ["rtb-ce6de4b2", "rtb-9565ece9"]
-}
+#   route_table_ids = ["rtb-ce6de4b2", "rtb-9565ece9"]
+# }
 
 
 resource "aws_ecs_task_definition" "app" {
