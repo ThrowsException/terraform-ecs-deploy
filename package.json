@@ -1,0 +1,23 @@
+{
+  "name": "fargate-terraform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThrowsException/terraform-ecs-deploy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThrowsException/terraform-ecs-deploy/issues"
+  },
+  "homepage": "https://github.com/ThrowsException/terraform-ecs-deploy#readme",
+  "dependencies": {
+    "fastify": "^3.27.4"
+  }
+}

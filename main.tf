@@ -114,7 +114,7 @@ resource "aws_codepipeline" "codepipeline" {
 
       configuration = {
         ConnectionArn    = data.aws_codestarconnections_connection.github.arn
-        FullRepositoryId = "ThrowsException/fargate-serverless"
+        FullRepositoryId = "ThrowsException/terraform-ecs-deploy"
         BranchName       = "master"
       }
     }
@@ -162,9 +162,8 @@ resource "aws_codepipeline" "codepipeline" {
 }
 
 resource "aws_s3_bucket" "codepipeline_bucket" {
-  bucket        = "cjo-test-bucket"
-  acl           = "private"
-  force_destroy = true
+  bucket = "cjo-codepipeline"
+  acl    = "private"
 }
 
 resource "aws_iam_role" "codepipeline_role" {
