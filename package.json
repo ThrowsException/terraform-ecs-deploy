@@ -19,5 +19,8 @@
   "homepage": "https://github.com/ThrowsException/terraform-ecs-deploy#readme",
   "dependencies": {
     "fastify": "^3.27.4"
+  },
+  "devDependencies": {
+    "prettier": "^2.6.1"
   }
 }
