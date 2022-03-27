@@ -140,7 +140,7 @@ resource "aws_codepipeline" "codepipeline" {
       configuration = {
         ProjectName          = "test"
         EnvironmentVariables = <<EOF
-          [{"name": "BRANCH", "value": "#{SourceVariables.BranchName}", "type": "PLAINTEXT"}]
+          [{"name": "BRANCH", "value": "#{SourceVariables.BranchName}", "type": "PLAINTEXT"}, {"name": "COMMIT_ID", "value": "#{SourceVariables.CommitId}", "type": "PLAINTEXT"}]
         EOF
       }
     }
