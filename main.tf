@@ -436,8 +436,9 @@ resource "aws_ecs_service" "app" {
   desired_count   = 1
   launch_type     = "FARGATE"
   network_configuration {
-    subnets         = ["subnet-824b55e6", "subnet-88595ca7"]
-    security_groups = ["sg-94b080e2"]
+    subnets          = ["subnet-824b55e6", "subnet-88595ca7"]
+    security_groups  = ["sg-94b080e2"]
+    assign_public_ip = true
   }
 
   load_balancer {
