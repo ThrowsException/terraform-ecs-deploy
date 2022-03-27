@@ -84,6 +84,11 @@ resource "aws_codebuild_project" "dockerbuild" {
       name  = "IMAGE_REPO_NAME"
       value = "node-app"
     }
+
+    environment_variable {
+      name  = "IMAGE_TAG"
+      value = "latest"
+    }
   }
 
   source {
