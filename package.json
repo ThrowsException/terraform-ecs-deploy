@@ -18,9 +18,16 @@
   },
   "homepage": "https://github.com/ThrowsException/terraform-ecs-deploy#readme",
   "dependencies": {
-    "fastify": "^3.27.4"
+    "@prisma/client": "^3.11.1",
+    "aws-sdk": "^2.1104.0",
+    "fastify": "^3.27.4",
+    "fastify-plugin": "^3.0.1",
+    "pg": "^8.7.3",
+    "prisma": "^3.11.1"
   },
   "devDependencies": {
-    "prettier": "^2.6.1"
+    "@types/node": "^17.0.23",
+    "prettier": "^2.6.1",
+    "ts-node": "^10.7.0"
   }
 }

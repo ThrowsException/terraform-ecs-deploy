@@ -1,9 +1,11 @@
 // Require the framework and instantiate it
+const client = require('./prismaClient');
 const fastify = require('fastify')({ logger: true });
 
 // Declare a route
 fastify.get('/', async (request, reply) => {
-  return { goodbye: 'world' };
+  const result = await client.$queryRaw`SELECT COUNT(1)`;
+  return { goodbye: result };
 });
 
 // Run the server!
